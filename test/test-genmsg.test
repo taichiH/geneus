@@ -1,0 +1,5 @@
+<launch>
+  <!-- test node -->
+  <test test-name="generate_msg_test" pkg="geneus" type="test-genmsg.l"
+	retry="3" time-limit="300"/>
+</launch>
