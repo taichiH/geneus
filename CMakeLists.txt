@@ -1,12 +1,10 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(geneus)
-find_package(catkin REQUIRED COMPONENTS genmsg std_msgs message_generation)
+find_package(catkin REQUIRED COMPONENTS genmsg message_generation)
 
 add_message_files(FILES testMsg.msg)
 
 catkin_python_setup()
-
-generate_messages(DEPENDENCIES std_msgs)
 
 catkin_package(
   CATKIN_DEPENDS genmsg

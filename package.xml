@@ -17,7 +17,7 @@
   <run_depend>genmsg</run_depend>
 
   <test_depend>message_generation</test_depend>
-  <test_depend>std_msgs</test_depend>
+  <test_depend>roseus</test_depend>
 
   <export>
     <message_generator>eus</message_generator>
