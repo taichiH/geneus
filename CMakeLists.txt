@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(geneus)
-find_package(catkin REQUIRED COMPONENTS genmsg)
+find_package(catkin REQUIRED COMPONENTS genmsg std_msgs message_generation)
+
+add_message_files(FILES testMsg.msg)
+
+catkin_python_setup()
+
+generate_messages(DEPENDENCIES std_msgs)
 
 catkin_package(
   CATKIN_DEPENDS genmsg
@@ -18,4 +24,7 @@ file(WRITE ${CATKIN_DEVEL_PREFIX}/share/roseus/rospack_nosubdirs "")
 install(FILES ${CATKIN_DEVEL_PREFIX}/share/roseus/rospack_nosubdirs
   DESTINATION share/roseus)
 
-catkin_python_setup()
+if(CATKIN_ENABLE_TESTING)
+  find_package(catkin REQUIRED COMPONENTS rostest)
+  add_rostest(test/test-genmsg.test)
+endif()
